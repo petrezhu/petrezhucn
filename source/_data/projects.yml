@@ -1,0 +1,23 @@
+- title: 三维图形格式解析重组及轻量化
+  thumbnail: /images/projects/format-parser-thumb.jpg
+  description: 支持5000+模型上传，极致轻量化与格式兼容，提升BIM数据流转效率。
+  tech_stack: [Vulkan, PostgreSQL, C++, WebGL]
+  detail_url: /projects/format-parser
+  demo_url: /webgl-demo/format-parser
+  highlight: true
+
+- title: 基于LLM的三维模型AI着色
+  thumbnail: /images/projects/ai-color-thumb.png
+  description: 专利级AI着色算法，提升三维模型自动化美观度与语义识别能力。
+  tech_stack: [LLM, WebGL, Python, AI]
+  detail_url: /projects/ai-color
+  demo_url: /webgl-demo/ai-color
+  highlight: true
+
+- title: 塑料模板支撑架生成系统
+  thumbnail: /images/projects/plastic-support-thumb.jpg
+  description: 降本40%，自动化生成支撑架BIM模型，提升施工效率。
+  tech_stack: [C#, BIM, Revit, Dynamo]
+  detail_url: /projects/plastic-support
+  demo_url: 
+  highlight: true 

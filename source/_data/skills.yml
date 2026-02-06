@@ -1,0 +1,12 @@
+- name: C++
+  level: 90
+- name: WebGL
+  level: 70
+- name: BIM
+  level: 90
+- name: LLM应用
+  level: 75
+- name: C#
+  level: 90
+- name: PostgreSQL
+  level: 65 

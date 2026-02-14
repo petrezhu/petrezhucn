@@ -16,10 +16,11 @@
       </div>
     {%- endif %}
 
-    <a href="{{ config.root }}" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">{{ title }}</h1>
-      <span class="logo-line-after"><i></i></span>
+    <a href="{{ config.root }}" class="brand" rel="start" tabindex="-1">
+      <img src="/images/petrezhu-logo.png" alt="PetreZhu Logo" class="brand-logo">
+      <span class="logo-line-before hidden-brand-content"><i></i></span>
+      <h1 class="site-title hidden-brand-content">{{ title }}</h1>
+      <span class="logo-line-after hidden-brand-content"><i></i></span>
     </a>
     {%- if subtitle %}
       <p class="site-subtitle" itemprop="description">{{ subtitle }}</p>

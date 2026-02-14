@@ -1,8 +1,17 @@
 {% import 'menu-item.swig' as menu_item with context %}
 
+<!-- MARKER: top-level-menu -->
 <nav class="site-nav">
 {%- if theme.menu %}
   <ul id="menu" class="main-menu menu">
+    {%- if is_home() %}
+      <li class="menu-item menu-item-carrot-switch">
+        <div id="carrot-rain-toggle" class="carrot-switch" title="萝卜雨">
+          <div class="carrot-switch-track"></div>
+        </div>
+      </li>
+    {%- endif %}
+
     {%- for name, path in theme.menu %}
       {%- set respath = path %}
       {%- if path == '[object Object]' %}

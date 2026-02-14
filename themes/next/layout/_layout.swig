@@ -60,5 +60,10 @@
   {%- if theme.pjax %}
     </div>
   {%- endif %}
+
+  {%- if page.path == 'index.html' %}
+  <canvas id="carrot-rain-canvas"></canvas>
+  <script src="/js/carrot-rain.js"></script>
+  {%- endif %}
 </body>
 </html>

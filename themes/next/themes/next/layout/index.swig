@@ -7,11 +7,8 @@
 
 {% block content %}
 
-  {%- for post in page.posts.toArray() %}
-    {{ partial('_macro/post.swig', {post: post, is_index: true}) }}
-  {%- endfor %}
-
-  {% include '_partials/pagination.swig' %}
+  {# Featured Projects Section #}
+  {% include '_partials/projects.swig' %}
 
 {% endblock %}
 

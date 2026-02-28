@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/source/images/petrezhu-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"petrezhu.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="a BIM Code Engineer Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PetreZhu">
+<meta property="og:url" content="http://petrezhu.cn/index.html">
+<meta property="og:site_name" content="PetreZhu">
+<meta property="og:description" content="a BIM Code Engineer Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="PetreZhu">
+<meta property="article:tag" content="BIM, Code, Blog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://petrezhu.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PetreZhu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="header-flex-row">
+  <div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start" tabindex="-1">
+      <img src="/images/petrezhu-logo.png" alt="PetreZhu Logo" class="brand-logo">
+      <span class="logo-line-before hidden-brand-content"><i></i></span>
+      <h1 class="site-title hidden-brand-content">PetreZhu</h1>
+      <span class="logo-line-after hidden-brand-content"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+  
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+      <li class="menu-item menu-item-carrot-switch">
+        <div id="carrot-rain-toggle" class="carrot-switch" title="萝卜雨">
+          <div class="carrot-switch-track"></div>
+        </div>
+      </li>
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+</div>
+
+
+
+</div>
+    </header>
+      <section class="hero-section">
+  <div class="hero-left">
+    <iframe src="/webgl-demo/index.html" 
+    class="webgl-demo" frameborder="0" loading="lazy" 
+    ></iframe>
+  </div>
+  <div class="hero-right">
+    <h1 class="hero-title">PetreZhu | BIM研发工程师</h1>
+    <p class="hero-tagline">专注BIM/三维图形/工业软件二开/算法研发</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">🚀 查看项目案例</a>
+      <a href="/archives" class="btn btn-secondary">📖 阅读博客</a>
+    </div>
+    <div class="hero-skills">
+    <h4 class="hero-skills-title">近期探索：</h4> 
+    <div class="hero-skills-items">
+      <span class="skill-tag">C++</span>
+      <span class="skill-tag">C#</span>
+      <span class="skill-tag">WebGL</span>
+      <span class="skill-tag">Agent</span>
+    </div>
+    </div>
+    <div class="hero-intro">
+      <p>您好，我是PetreZhu，BIM研发工程师，专注于三维图形、工业软件二次开发与算法创新。拥有丰富的C++/WebGL/LLM应用开发经验，主导多项BIM与三维可视化项目，致力于推动工业数字化与智能化升级。</p>
+    </div>
+  </div>
+</section> 
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+
+  
+  <section class="projects-section" id="projects">
+  <h2 class="section-title">项目经验</h2>
+  <div class="projects-grid">
+    
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/dongshanbus.jpg" alt="dongshanBus">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">dongshanBus</h3>
+            <p class="project-desc">东山公交智能查询项目，聚焦班次检索、站点信息与出行效率提升。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">FastAPI</span>
+              
+                <span class="project-tag">Python</span>
+              
+                <span class="project-tag">WeChat</span>
+              
+                <span class="project-tag">LLM</span>
+              
+            </div>
+            <div class="project-actions">
+              
+              
+                <a href="https://bus.petrezhu.cn" class="btn btn-primary" target="_blank">在线演示</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/dongshantide.jpg" alt="dongshanTide">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">dongshanTide</h3>
+            <p class="project-desc">东山潮汐信息服务项目，提供潮汐时间与文旅场景的实用决策支持。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">Nuxt</span>
+              
+                <span class="project-tag">TypeScript</span>
+              
+                <span class="project-tag">API</span>
+              
+                <span class="project-tag">Visualization</span>
+              
+            </div>
+            <div class="project-actions">
+              
+              
+                <a href="https://tide.petrezhu.cn" class="btn btn-primary" target="_blank">在线演示</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/duoshe.jpg" alt="duoshe">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">duoshe</h3>
+            <p class="project-desc">多舍内容与工具平台，面向创作与效率工作流的持续迭代实践。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">Nuxt</span>
+              
+                <span class="project-tag">Node.js</span>
+              
+                <span class="project-tag">SQLite</span>
+              
+                <span class="project-tag">Automation</span>
+              
+            </div>
+            <div class="project-actions">
+              
+              
+                <a href="https://ds.petrezhu.cn" class="btn btn-primary" target="_blank">在线演示</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/format-parser-thumb.jpg" alt="三维图形格式解析重组及轻量化">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">三维图形格式解析重组及轻量化</h3>
+            <p class="project-desc">支持5000+模型上传，极致轻量化与格式兼容，提升BIM数据流转效率。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">Vulkan</span>
+              
+                <span class="project-tag">PostgreSQL</span>
+              
+                <span class="project-tag">C++</span>
+              
+                <span class="project-tag">WebGL</span>
+              
+            </div>
+            <div class="project-actions">
+              
+                <a href="/projects/format-parser" class="btn btn-secondary">探索详情</a>
+              
+              
+                <a href="/webgl-demo/format-parser" class="btn btn-primary" target="_blank">在线演示</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/ai-color-thumb.png" alt="基于LLM的三维模型AI着色">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">基于LLM的三维模型AI着色</h3>
+            <p class="project-desc">专利级AI着色算法，提升三维模型自动化美观度与语义识别能力。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">LLM</span>
+              
+                <span class="project-tag">WebGL</span>
+              
+                <span class="project-tag">Python</span>
+              
+                <span class="project-tag">AI</span>
+              
+            </div>
+            <div class="project-actions">
+              
+                <a href="/projects/ai-color" class="btn btn-secondary">探索详情</a>
+              
+              
+                <a href="/webgl-demo/ai-color" class="btn btn-primary" target="_blank">在线演示</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="project-card">
+          <div class="project-thumb">
+            <img src="/images/projects/plastic-support-thumb.jpg" alt="塑料模板支撑架生成系统">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">塑料模板支撑架生成系统</h3>
+            <p class="project-desc">降本40%，自动化生成支撑架BIM模型，提升施工效率。</p>
+            <div class="project-tags">
+              
+                <span class="project-tag">C#</span>
+              
+                <span class="project-tag">BIM</span>
+              
+                <span class="project-tag">Revit</span>
+              
+                <span class="project-tag">Dynamo</span>
+              
+            </div>
+            <div class="project-actions">
+              
+                <a href="/projects/plastic-support" class="btn btn-secondary">探索详情</a>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+      
+    
+  </div>
+</section> 
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">PetreZhu</p>
+  <div class="site-description" itemprop="description">a BIM Code Engineer Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PetreZhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PetreZhu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:petrezhu@foxmail.com" title="E-Mail → mailto:petrezhu@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"> </a>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2025108965" rel="noopener" target="_blank">闽ICP备2025108965号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PetreZhu</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  <canvas id="carrot-rain-canvas"></canvas>
+  <script src="/js/carrot-rain.js"></script>
+</body>
+</html>

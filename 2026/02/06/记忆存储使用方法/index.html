@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/source/images/petrezhu-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"petrezhu.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData.cs）：&#x2F;&#x2F;&#x2F;  &#x2F;&#x2F;&#x2F; 横管对齐 扩展存储数据类 &#x2F;&#x2F;&#x2F;“1596ed6b-8302-e2d6-dff3-7be0beacf88b”是自己设的GUID,只要满足与其他功能 的GUID &#x2F;&#x2F;&#x2F;不重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记忆存储使用方法">
+<meta property="og:url" content="http://petrezhu.cn/2026/02/06/%E8%AE%B0%E5%BF%86%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="PetreZhu">
+<meta property="og:description" content="①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData.cs）：&#x2F;&#x2F;&#x2F;  &#x2F;&#x2F;&#x2F; 横管对齐 扩展存储数据类 &#x2F;&#x2F;&#x2F;“1596ed6b-8302-e2d6-dff3-7be0beacf88b”是自己设的GUID,只要满足与其他功能 的GUID &#x2F;&#x2F;&#x2F;不重">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-05T18:03:45.608Z">
+<meta property="article:modified_time" content="2026-02-05T18:03:45.656Z">
+<meta property="article:author" content="PetreZhu">
+<meta property="article:tag" content="Revit">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://petrezhu.cn/2026/02/06/%E8%AE%B0%E5%BF%86%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>记忆存储使用方法 | PetreZhu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="header-flex-row">
+  <div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start" tabindex="-1">
+      <img src="/images/petrezhu-logo.png" alt="PetreZhu Logo" class="brand-logo">
+      <span class="logo-line-before hidden-brand-content"><i></i></span>
+      <h1 class="site-title hidden-brand-content">PetreZhu</h1>
+      <span class="logo-line-after hidden-brand-content"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+  
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+</div>
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://petrezhu.cn/2026/02/06/%E8%AE%B0%E5%BF%86%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PetreZhu">
+      <meta itemprop="description" content="a BIM Code Engineer Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PetreZhu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记忆存储使用方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-02-06 02:03:45" itemprop="dateCreated datePublished" datetime="2026-02-06T02:03:45+08:00">2026-02-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData-cs）："><a href="#①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData-cs）：" class="headerlink" title="①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData.cs）："></a>①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData.cs）：</h1><p>&#x2F;&#x2F;&#x2F; <summary></p>
+<p>&#x2F;&#x2F;&#x2F; 横管对齐 扩展存储数据类</p>
+<p>&#x2F;&#x2F;&#x2F;“1596ed6b-8302-e2d6-dff3-7be0beacf88b”是自己设的GUID,只要满足与其他功能 的GUID &#x2F;&#x2F;&#x2F;不重复且符合GUID格式即可</p>
+<p>&#x2F;&#x2F;&#x2F; </summary></p>
+<p>[Schema(“1596ed6b-8302-e2d6-dff3-7be0beacf88b”, “HPLEAlignOptionsData”, Documentation &#x3D; “横管对齐选项数据”)]</p>
+<p>public class HPLEAlignOptionsData : IRevitEntity</p>
+<p>{</p>
+<p>[Field(Documentation &#x3D; “是否顶对齐”)]</p>
+<p>public bool IsAlignToTop { get; set; }</p>
+<p>[Field(Documentation &#x3D; “是否中对齐”)]</p>
+<p>public bool IsAlignToCenter { get; set; }</p>
+<p>[Field(Documentation &#x3D; “是否底对齐”)]</p>
+<p>public bool IsAlignToBottom { get; set; }</p>
+<p>[Field(Documentation &#x3D; “是否是参照对齐模式”)]</p>
+<p>public bool IsBenchAlign { get; set; }</p>
+<p>[Field(Documentation &#x3D; “是否是标高对齐模式”)]</p>
+<p>public bool IsLevelAlign { get; set; }</p>
+<p>[Field(Documentation &#x3D; “当前选中的标高”, UnitType &#x3D; UnitType.UT_Number)]</p>
+<p>public int CuSelectedLevelIndex { get; set; }</p>
+<p>[Field(Documentation &#x3D; “偏移值”)]</p>
+<p>public string Offset { get; set; }</p>
+<p>[Field(Documentation &#x3D; “是否计算保温”)]</p>
+<p>public bool IsInsulationCount { get; set; }</p>
+<p>}</p>
+<h1 id="②ViewModel中读取，ViewModel要引用Revit-ES-Extension-dll或者VCExtensibleStorageExtension-dll（推荐）"><a href="#②ViewModel中读取，ViewModel要引用Revit-ES-Extension-dll或者VCExtensibleStorageExtension-dll（推荐）" class="headerlink" title="②ViewModel中读取，ViewModel要引用Revit.ES.Extension.dll或者VCExtensibleStorageExtension.dll（推荐）:"></a>②ViewModel中读取，ViewModel要引用Revit.ES.Extension.dll或者VCExtensibleStorageExtension.dll（推荐）:</h1><h1 id="界面初始化"><a href="#界面初始化" class="headerlink" title="界面初始化"></a>界面初始化</h1><p>&#x2F;&#x2F;读取被存储在项目信息中的本插件上次运行的选项</p>
+<p>optionsDataHelper &#x3D; new HPLEAlignOptionsHelper();</p>
+<p>HPLEAlignOptionsData storagedOptions &#x3D; optionsDataHelper.GetOptions(m_Doc.ProjectInformation);</p>
+<p>if (storagedOptions &#x3D;&#x3D; null || storagedOptions.Offset is null)</p>
+<p>{</p>
+<p>&#x2F;&#x2F;界面选项初始化</p>
+<p>IsAlignToBottom &#x3D; true;</p>
+<p>IsBenchAlign &#x3D; true;</p>
+<p>CuSelectedLevel &#x3D; LevelItemSource.First();</p>
+<p>Offset &#x3D; “3000”;</p>
+<p>IsInsulationCount &#x3D; true;</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>IsAlignToBottom &#x3D; storagedOptions.IsAlignToBottom;</p>
+<p>IsAlignToCenter &#x3D; storagedOptions.IsAlignToCenter;</p>
+<p>IsAlignToTop &#x3D; storagedOptions.IsAlignToTop;</p>
+<p>IsBenchAlign &#x3D; storagedOptions.IsBenchAlign;</p>
+<p>IsLevelAlign &#x3D; storagedOptions.IsLevelAlign;</p>
+<p>if(storagedOptions.CuSelectedLevelIndex &lt; LevelItemSource.Count)</p>
+<p>{</p>
+<p>CuSelectedLevel &#x3D; LevelItemSource[storagedOptions.CuSelectedLevelIndex];</p>
+<p>}</p>
+<p>Offset &#x3D; storagedOptions.Offset;</p>
+<p>IsInsulationCount &#x3D; storagedOptions.IsInsulationCount;</p>
+<p>}</p>
+<h1 id="③读取写入存储数据的方法：-这个方法可以放ViewModel，也可以放随便哪个文档："><a href="#③读取写入存储数据的方法：-这个方法可以放ViewModel，也可以放随便哪个文档：" class="headerlink" title="③读取写入存储数据的方法：&#x2F;&#x2F;这个方法可以放ViewModel，也可以放随便哪个文档："></a>③读取写入存储数据的方法：&#x2F;&#x2F;这个方法可以放ViewModel，也可以放随便哪个文档：</h1><p>&#x2F;&#x2F;&#x2F; <summary></p>
+<p>&#x2F;&#x2F;&#x2F; 横管对齐 扩展存储数据工具类</p>
+<p>&#x2F;&#x2F;&#x2F; </summary></p>
+<p>public class HPLEAlignOptionsHelper</p>
+<p>{</p>
+<p>&#x2F;&#x2F;读取</p>
+<p>public HPLEAlignOptionsData GetOptions(ProjectInfo projectInfo)</p>
+<p>{</p>
+<p>HPLEAlignOptionsData optionsData &#x3D; projectInfo.GetEntity<HPLEAlignOptionsData>();</p>
+<p>if (optionsData !&#x3D; null)</p>
+<p>return optionsData;</p>
+<p>return new HPLEAlignOptionsData();</p>
+<p>}</p>
+<p>&#x2F;&#x2F;写入</p>
+<p>public void SetOptions(ProjectInfo projectInfo, HPLEAlignOptionsData optionsData)</p>
+<p>{</p>
+<p>projectInfo.SetEntity(optionsData);</p>
+<p>}</p>
+<p>}</p>
+<h1 id="④、写入存储数据："><a href="#④、写入存储数据：" class="headerlink" title="④、写入存储数据："></a>④、写入存储数据：</h1><p>&#x2F;&#x2F;&#x2F; <summary></p>
+<p>&#x2F;&#x2F;&#x2F; 保存当前窗口选项的选择</p>
+<p>&#x2F;&#x2F;&#x2F; </summary></p>
+<p>public void SaveWpfOption()</p>
+<p>{</p>
+<p>var newStorageOptions &#x3D; new HPLEAlignOptionsData();</p>
+<p>newStorageOptions.IsAlignToBottom &#x3D; IsAlignToBottom;</p>
+<p>newStorageOptions.IsAlignToCenter &#x3D; IsAlignToCenter;</p>
+<p>newStorageOptions.IsAlignToTop &#x3D; IsAlignToTop;</p>
+<p>newStorageOptions.IsBenchAlign &#x3D; IsBenchAlign;</p>
+<p>newStorageOptions.IsLevelAlign &#x3D; IsLevelAlign;</p>
+<p>newStorageOptions.CuSelectedLevelIndex &#x3D; LevelItemSource.IndexOf(CuSelectedLevel);</p>
+<p>newStorageOptions.Offset &#x3D; Offset;</p>
+<p>newStorageOptions.IsInsulationCount &#x3D; IsInsulationCount;</p>
+<p>optionsDataHelper.SetOptions(m_Doc.ProjectInformation, newStorageOptions);</p>
+<p>}</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Revit/" rel="tag"># Revit</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/06/Revit%E7%B1%BB%E5%88%AB%E8%A1%A8/" rel="prev" title="Revit类别表">
+      <i class="fa fa-chevron-left"></i> Revit类别表
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%AE%9A%E4%B9%89%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B1%BB%EF%BC%88%E6%88%91%E6%94%BE%E5%9C%A8Data%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8BHPLEAlignOptionsData-cs%EF%BC%89%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">①定义存储数据的类（我放在Data文件夹下HPLEAlignOptionsData.cs）：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1ViewModel%E4%B8%AD%E8%AF%BB%E5%8F%96%EF%BC%8CViewModel%E8%A6%81%E5%BC%95%E7%94%A8Revit-ES-Extension-dll%E6%88%96%E8%80%85VCExtensibleStorageExtension-dll%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">②ViewModel中读取，ViewModel要引用Revit.ES.Extension.dll或者VCExtensibleStorageExtension.dll（推荐）:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">界面初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A-%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E6%94%BEViewModel%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%94%BE%E9%9A%8F%E4%BE%BF%E5%93%AA%E4%B8%AA%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">③读取写入存储数据的方法：&#x2F;&#x2F;这个方法可以放ViewModel，也可以放随便哪个文档：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E3%80%81%E5%86%99%E5%85%A5%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">④、写入存储数据：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">PetreZhu</p>
+  <div class="site-description" itemprop="description">a BIM Code Engineer Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PetreZhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PetreZhu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:petrezhu@foxmail.com" title="E-Mail → mailto:petrezhu@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"> </a>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2025108965" rel="noopener" target="_blank">闽ICP备2025108965号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PetreZhu</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

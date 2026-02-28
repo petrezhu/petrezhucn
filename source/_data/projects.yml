@@ -1,3 +1,27 @@
+- title: dongshanBus
+  thumbnail: /images/projects/dongshanbus.jpg
+  description: 东山公交智能查询项目，聚焦班次检索、站点信息与出行效率提升。
+  tech_stack: [FastAPI, Python, WeChat, LLM]
+  detail_url:
+  demo_url: https://bus.petrezhu.cn
+  highlight: true
+
+- title: dongshanTide
+  thumbnail: /images/projects/dongshantide.jpg
+  description: 东山潮汐信息服务项目，提供潮汐时间与文旅场景的实用决策支持。
+  tech_stack: [Nuxt, TypeScript, API, Visualization]
+  detail_url:
+  demo_url: https://tide.petrezhu.cn
+  highlight: true
+
+- title: duoshe
+  thumbnail: /images/projects/duoshe.jpg
+  description: 多舍内容与工具平台，面向创作与效率工作流的持续迭代实践。
+  tech_stack: [Nuxt, Node.js, SQLite, Automation]
+  detail_url:
+  demo_url: https://ds.petrezhu.cn
+  highlight: true
+
 - title: 三维图形格式解析重组及轻量化
   thumbnail: /images/projects/format-parser-thumb.jpg
   description: 支持5000+模型上传，极致轻量化与格式兼容，提升BIM数据流转效率。
@@ -19,5 +43,5 @@
   description: 降本40%，自动化生成支撑架BIM模型，提升施工效率。
   tech_stack: [C#, BIM, Revit, Dynamo]
   detail_url: /projects/plastic-support
-  demo_url: 
-  highlight: true 
+  demo_url:
+  highlight: true
